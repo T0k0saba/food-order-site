@@ -25,6 +25,14 @@ Version: 1.0;
     clear: both;
 }
 
+.tbl-full {
+    width: 100%;
+}
+
+table tr th {
+    border-bottom: 1px solid black;
+}
+
 /* CSS for Menu */
 .menu {
     border-bottom: 1px solid grey ;
