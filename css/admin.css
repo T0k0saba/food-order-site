@@ -16,6 +16,14 @@ Version: 1.0;
     width: 20%;
     text-align: center;
 }
+
+.deteleSuccess{
+    background-color: #d52e34;
+    padding: 10px;
+    border-radius: 20px;
+    width: 20%;
+    text-align: center;
+}
 .wrapper {
     padding: 1%;
     width: 80%;

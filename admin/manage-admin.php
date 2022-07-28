@@ -19,6 +19,18 @@ include('partials/menu.php');
             }
             ?>
 
+            <?php
+            if (isset($_SESSION['deleteMsg'])) { ?>
+                <div class="deteleSuccess">
+                    <?php
+                    echo $_SESSION['deleteMsg']; //display session message
+                    unset($_SESSION['deleteMsg']); //removing session message
+                    ?>
+                </div>
+                <?php
+            }
+            ?>
+
             <br><br><br>
 
             <!-- Button to add Admin -->
@@ -68,7 +80,7 @@ include('partials/menu.php');
                                 <td><?php echo $username; ?></td>
                                 <td>
                                     <a href="#" class="btn-secondary">Update Admin</a>
-                                    <a href="#" class="btn-danger">Delete Admin</a>
+                                    <a href="deleteAdmin.php?id=<?php echo $id?>" class="btn-danger">Delete Admin</a>
                                 </td>
                             </tr>
 
