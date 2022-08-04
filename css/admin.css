@@ -126,3 +126,11 @@ list-style-type: none;
     color: white;
 }
 
+/* CSS for Login */
+
+.login {
+    border: 1px solid grey;
+    width: 20%;
+    margin: 10% auto;
+    padding: 2%;
+}
