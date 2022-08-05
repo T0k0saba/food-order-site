@@ -62,7 +62,7 @@ include('partials/footer.php');
 <?php
 //Process the value from Form and save it in database
 
-//Check whether the submit button is clicked or nor
+//Check whether the submit button is clicked or not
 
 if (isset($_POST['submit'])) {
     // Button Clicked
