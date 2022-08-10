@@ -106,46 +106,48 @@ include('partials/menu.php');
 
             //die(); //break the code here
 
-            if(isset($_FILES['image']['name']))
-            {
+            if (isset($_FILES['image']['name'])) {
                 //upload the image
                 //to upload image we need image name, source path and destination path
 
                 $image_name = $_FILES['image']['name'];
 
-// auto rename our image
-//get the extension of our image (jpg, png, gif, etc) e.g. "specialfood1.jpg"
+                //upload the image only if image is selected
+                if ($image_name != "") {
 
-$ext = end(explode('.', $image_name));
 
-//rename the image
-$image_name = "Food_Category_".rand(000, 999).'.'.$ext; // e.g. Food_Category_834.jpg
 
-                $source_path = $_FILES['image']['tmp_name'];
-                $destination_path = "../images/category/".$image_name;
+                    // auto rename our image
+                    //get the extension of our image (jpg, png, gif, etc) e.g. "specialfood1.jpg"
 
-                //finally upload the image
+                    $ext = end(explode('.', $image_name));
 
-                $upload = move_uploaded_file($source_path, $destination_path);
+                    //rename the image
+                    $image_name = "Food_Category_" . rand(000, 999) . '.' . $ext; // e.g. Food_Category_834.jpg
 
-                //check whether the image is uploaded or not
-                //and if the image is not uploaded then we will stop the process and redirect with error message
+                    $source_path = $_FILES['image']['tmp_name'];
+                    $destination_path = "../images/category/" . $image_name;
 
-                if($upload==false)
-                {
-                    //set message
-                    $_SESSION['upload'] = "<div class='error'>Failed to upload image.</div>";
-                    //redirect to add category page
-                    header('location:'.SITEURL.'admin/add-category.php');
+                    //finally upload the image
 
-                    //stop the process
-                    die();
+                    $upload = move_uploaded_file($source_path, $destination_path);
+
+                    //check whether the image is uploaded or not
+                    //and if the image is not uploaded then we will stop the process and redirect with error message
+
+                    if ($upload == false) {
+                        //set message
+                        $_SESSION['upload'] = "<div class='error'>Failed to upload image.</div>";
+                        //redirect to add category page
+                        header('location:' . SITEURL . 'admin/add-category.php');
+
+                        //stop the process
+                        die();
+                    }
                 }
-            }
-            else
-            {
+            } else {
                 //don't upload image and set the image_name value ad blank
-                $image_name="";
+                $image_name = "";
             }
 
             //2. create SQL query to insert category into database
