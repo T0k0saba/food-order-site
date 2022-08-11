@@ -82,7 +82,7 @@ if (isset($_POST['submit'])) {
 
 
     // 3. Executing query and saving data into database
-    $res = mysqli_query($conn, $sql) or die(mysqli_error());
+    $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
     //4. check wether the (query is executed) data is inserted or not and display appropriate message
 
