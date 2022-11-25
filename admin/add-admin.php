@@ -82,7 +82,7 @@ if(isset($_POST['submit']))
     {
         // Data inserted
         // Create a Session variable to display message
-        $_SESSION['add'] = "Admin Added Successfully";
+        $_SESSION['add'] = "<div class='success'>Admin Added Successfully</div>";
 
         // Redirect Page- to manage-admin
         header("location:".SITEURL.'admin/manage-admin.php');
@@ -91,7 +91,7 @@ if(isset($_POST['submit']))
     {
         // Failed to insert data
         // Create a Session variable to display message
-        $_SESSION['add'] = "Failed to add admin";
+        $_SESSION['add'] = "<div class='error'>Failed to add admin</div>";
         
         // Redirect Page- to Add-admin
         header("location:".SITEURL.'admin/add-admin.php');
