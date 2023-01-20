@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2022. Dec 12. 08:19
+-- Létrehozás ideje: 2023. Jan 20. 16:25
 -- Kiszolgáló verziója: 10.4.21-MariaDB
 -- PHP verzió: 8.0.12
 
@@ -63,9 +63,9 @@ CREATE TABLE `tbl_category` (
 --
 
 INSERT INTO `tbl_category` (`id`, `title`, `image_name`, `featured`, `active`) VALUES
-(4, 'test2', 'Food_Category_721.jpg', 'Yes', 'Yes'),
-(5, 'test3 image', 'Food_Category_863.jpg', 'Yes', 'Yes'),
-(6, 'maza mx-5', 'Food_Category_332.jpg', 'Yes', 'No');
+(13, 'Pizza', 'Food_Category_899.jpg', 'Yes', 'Yes'),
+(14, 'Burgers', 'Food_Category_549.jpg', 'Yes', 'Yes'),
+(15, 'Momo', 'Food_Category_543.jpg', 'Yes', 'Yes');
 
 -- --------------------------------------------------------
 
@@ -83,6 +83,19 @@ CREATE TABLE `tbl_food` (
   `featured` varchar(10) NOT NULL,
   `active` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- A tábla adatainak kiíratása `tbl_food`
+--
+
+INSERT INTO `tbl_food` (`id`, `title`, `description`, `price`, `image_name`, `category_id`, `featured`, `active`) VALUES
+(11, 'Food1', 'asdf', '10.00', 'Food-Name-4881.jpg', 14, 'Yes', 'Yes'),
+(12, 'Food2', 'asd', '20.00', 'Food-Name-691.jpg', 15, 'Yes', 'Yes'),
+(13, 'Food3', 'asdf', '20.00', 'Food-Name-6424.jpg', 13, 'Yes', 'Yes'),
+(14, 'Food4', '123', '21.00', 'Food-Name-4632.jpg', 14, 'Yes', 'Yes'),
+(15, 'Food5', 'asf', '34.00', 'Food-Name-3504.jpg', 14, 'Yes', 'Yes'),
+(16, 'Food6', 'asdf', '24.00', 'Food-Name-3589.jpg', 13, 'Yes', 'Yes'),
+(17, 'Food7', 'asdf', '21.00', 'Food-Name-4792.jpg', 15, 'No', 'Yes');
 
 -- --------------------------------------------------------
 
@@ -146,13 +159,13 @@ ALTER TABLE `tbl_admin`
 -- AUTO_INCREMENT a táblához `tbl_category`
 --
 ALTER TABLE `tbl_category`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT a táblához `tbl_food`
 --
 ALTER TABLE `tbl_food`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT a táblához `tbl_order`
