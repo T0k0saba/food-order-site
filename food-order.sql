@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Jan 20. 16:25
+-- Létrehozás ideje: 2023. Jan 28. 12:39
 -- Kiszolgáló verziója: 10.4.21-MariaDB
 -- PHP verzió: 8.0.12
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Adatbázis: `food-order`
 --
-CREATE DATABASE IF NOT EXISTS `food-order` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `food-order`;
 
 -- --------------------------------------------------------
 
@@ -29,6 +27,7 @@ USE `food-order`;
 -- Tábla szerkezet ehhez a táblához `tbl_admin`
 --
 
+DROP TABLE IF EXISTS `tbl_admin`;
 CREATE TABLE `tbl_admin` (
   `id` int(10) UNSIGNED NOT NULL,
   `full_name` varchar(100) NOT NULL,
@@ -50,6 +49,7 @@ INSERT INTO `tbl_admin` (`id`, `full_name`, `username`, `password`) VALUES
 -- Tábla szerkezet ehhez a táblához `tbl_category`
 --
 
+DROP TABLE IF EXISTS `tbl_category`;
 CREATE TABLE `tbl_category` (
   `id` int(10) UNSIGNED NOT NULL,
   `title` varchar(100) NOT NULL,
@@ -73,6 +73,7 @@ INSERT INTO `tbl_category` (`id`, `title`, `image_name`, `featured`, `active`) V
 -- Tábla szerkezet ehhez a táblához `tbl_food`
 --
 
+DROP TABLE IF EXISTS `tbl_food`;
 CREATE TABLE `tbl_food` (
   `id` int(10) UNSIGNED NOT NULL,
   `title` varchar(100) NOT NULL,
@@ -103,6 +104,7 @@ INSERT INTO `tbl_food` (`id`, `title`, `description`, `price`, `image_name`, `ca
 -- Tábla szerkezet ehhez a táblához `tbl_order`
 --
 
+DROP TABLE IF EXISTS `tbl_order`;
 CREATE TABLE `tbl_order` (
   `id` int(10) UNSIGNED NOT NULL,
   `food` varchar(150) NOT NULL,
@@ -116,6 +118,16 @@ CREATE TABLE `tbl_order` (
   `customer_email` varchar(150) NOT NULL,
   `customer_address` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- A tábla adatainak kiíratása `tbl_order`
+--
+
+INSERT INTO `tbl_order` (`id`, `food`, `price`, `qty`, `total`, `order_date`, `status`, `customer_name`, `customer_contact`, `customer_email`, `customer_address`) VALUES
+(1, 'Food2', '20.00', 2, '40.00', '2023-01-28 10:48:11', 'Delivered', 'Talon Giles', '+1 (341) 376-5958', 'qakap@mailinator.com', 'Impedit aute qui di'),
+(2, 'Food5', '34.00', 5, '170.00', '2023-01-28 10:52:46', 'Cancelled', 'Lee Fuller', '+1 (584) 275-3865', 'nerabegufi@mailinator.com', 'Ut alias mollit dele'),
+(3, 'Food3', '20.00', 2, '40.00', '2023-01-28 10:53:50', 'On Delivery', 'Kiara Whitley', '+1 (836) 334-8366', 'fybi@mailinator.com', 'Dolor ipsam harum au'),
+(4, 'Food6', '24.00', 2, '48.00', '2023-01-28 10:55:00', 'Ordered', 'Erica Crawford', '+1 (547) 277-3784', 'bicityci@mailinator.com', 'Expedita qui laborio');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -153,7 +165,7 @@ ALTER TABLE `tbl_order`
 -- AUTO_INCREMENT a táblához `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT a táblához `tbl_category`
@@ -171,7 +183,7 @@ ALTER TABLE `tbl_food`
 -- AUTO_INCREMENT a táblához `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
